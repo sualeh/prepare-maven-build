@@ -1,7 +1,9 @@
 name: "Prepare for Apache Maven Build with Java 8"
 description: "Restores the Apache Maven local repository, checks out code and installs Java 8 in preparation for Maven build"
 
-inputs:
+branding:
+  icon: more-horizontal
+  color: purple
 
 runs:
   using: "composite"
