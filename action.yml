@@ -36,7 +36,7 @@ runs:
         server-password: MAVEN_PASSWORD
     - id: setup-java-matrix
       name: Set up JDK
-      if: ${{ matrix.java }} != ''
+      if: ${{ matrix.java != '' }}
       uses: actions/setup-java@v2
       with:
         distribution: zulu
