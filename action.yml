@@ -54,6 +54,4 @@ runs:
         echo maven:
         mvn -v
         cat ~/.m2/settings.xml
-        echo docker:
-        docker -v
         which dot || echo "Graphviz not installed"
