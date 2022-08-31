@@ -36,7 +36,7 @@ runs:
       name: Checkout code
       uses: actions/checkout@v3
       with:
-        ref: ${{ checkout-branch }}
+        ref: ${{ inputs.checkout-branch }}
     - id: setup-java
       name: Set up JDK
       uses: actions/setup-java@v3
