@@ -59,5 +59,8 @@ runs:
         java -version
         echo maven:
         mvn -v
+        echo "maven settings.xml:"
         cat ~/.m2/settings.xml
+        echo "maven toolchains.xml"
+        cat ~/.m2/toolchains.xml
         which dot || echo "Graphviz not installed"
