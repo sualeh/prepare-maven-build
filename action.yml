@@ -45,10 +45,11 @@ runs:
       shell: bash
       run: |
         # Show environment
-        echo operating system: ${{ runner.os }}
-        echo github.repository: ${{ github.repository }}
-        echo github.ref: ${{ github.head_ref || github.ref }}
-        echo github.sha: ${{ github.sha }}
+        echo ">>>> Operating system: ${{ runner.os }}"
+        echo ">>>> GitHub:"
+        echo "  github.repository: ${{ github.repository }}"
+        echo "  github.ref: ${{ github.head_ref || github.ref }}"
+        echo "  github.sha: ${{ github.sha }}"
         echo ">>>> Java:"
         java -version
         echo ">>>> Maven:"
