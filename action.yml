@@ -49,12 +49,14 @@ runs:
         echo github.repository: ${{ github.repository }}
         echo github.ref: ${{ github.head_ref || github.ref }}
         echo github.sha: ${{ github.sha }}
-        echo java:
+        echo ">>>> Java:"
         java -version
-        echo maven:
+        echo ">>>> Maven:"
         mvn -v
-        echo "maven settings.xml:"
-        cat ~/.m2/settings.xml
-        echo "maven toolchains.xml"
-        cat ~/.m2/toolchains.xml
+        echo ">>>> Maven settings.xml:"
+        cat ~/.m2/settings.xml ; echo
+        echo ">>>> Maven toolchains.xml:"
+        cat ~/.m2/toolchains.xml ; echo
+        echo ">>>> Graphviz:"
         which dot || echo "Graphviz not installed"
+        echo
