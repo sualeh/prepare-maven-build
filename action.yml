@@ -30,6 +30,7 @@ runs:
         remove-docker-images: 'true'
     - id: restart-docker
       name: Restart Docker
+      if: runner.os == 'Linux'
       shell: bash
       run: |
         # Restart Docker to take into account additional disk space
