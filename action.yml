@@ -40,6 +40,16 @@ runs:
         server-id: sonatype-nexus
         server-username: MAVEN_USERNAME
         server-password: MAVEN_PASSWORD
+    - id: maximize-build-space
+      name: Maximize build space
+      uses: easimon/maximize-build-space@master
+      with:
+        root-reserve-mb: '8192'
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
+        remove-codeql: 'true'
+        remove-docker-images: 'true'
     - id: show-environment
       name: Show environment
       shell: bash
