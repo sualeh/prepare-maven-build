@@ -14,6 +14,14 @@ inputs:
     description: git branch to checkout
     required: false
     default: ''
+  gpg-private-key:
+    description: GPG private key for signing
+    required: false
+    default: ''
+  gpg-passphrase:
+    description: GPG passphrase for signing
+    required: false
+    default: ''
 
 runs:
   using: "composite"
@@ -40,8 +48,8 @@ runs:
         server-id: central
         server-username: MAVEN_USERNAME
         server-password: MAVEN_PASSWORD
-        gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-        gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+        gpg-private-key: ${{ inputs.gpg-private-key }}
+        gpg-passphrase: ${{ inputs.gpg-passphrase }}
     - id: show-environment
       name: Show environment
       shell: bash
