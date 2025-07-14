@@ -1,0 +1,38 @@
+{
+  "[markdown]": {
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
+  },
+  "editor.fontSize": 14,
+  "editor.lineHeight": 24,
+  "editor.minimap.enabled": false,
+  "editor.overviewRulerBorder": false,
+  "editor.wrappingIndent": "indent",
+  "editor.foldingImportsByDefault": true,
+  "editor.tabSize": 4,
+  "files.defaultLanguage": "markdown",
+  "files.exclude": {
+    "**/node_modules": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "git.enableCommitSigning": true,
+  "git.enableSmartCommit": true,
+  "git.autoStash": true,
+  "git.confirmSync": false,
+  "git.postCommitCommand": "sync",
+  "git.showActionButton": {
+    "commit": false,
+    "publish": false,
+    "sync": false
+  },
+  "scm.showActionButton": false,
+  "scm.showInputActionButton": false,
+  "window.zoomLevel": 1.2,
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+  }
+}
