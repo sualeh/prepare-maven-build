@@ -21,10 +21,12 @@ jobs:
     - id: checkout-code
       name: Checkout code
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
-# CREATE GITHUB RELEASE AND ADD ASSETS
+# CREATE GITHUB RELEASE
     - id: create-release
-      name: Create GitHub release
+      name: Create GitHub release and publish to marketplace
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/tags/')
       with:
@@ -32,6 +34,7 @@ jobs:
         name: ${{ github.ref_name }}
         draft: false
         prerelease: false
+        make_latest: true
         body: |
-          GitHub Action to Prepare for a Maven Build ${{ github.event.release.tag_name }} release at last commit ${{ github.sha }}
+          GitHub Action to Prepare for a Maven Build ${{ github.ref_name }} release at last commit ${{ github.sha }}
         generate_release_notes: true
