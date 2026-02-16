@@ -43,13 +43,6 @@ runs:
         server-password: MAVEN_PASSWORD
         gpg-private-key: ${{ inputs.gpg-private-key }}
         gpg-passphrase: ${{ inputs.gpg-passphrase }}
-    - id: cache-ivy2
-      name: Cache Ivy packages
-      uses: actions/cache@v4
-      with:
-        path: ~/.ivy2
-        key: ${{ runner.os }}-ivy2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-ivy2
     - id: show-environment
       name: Show environment
       shell: bash
