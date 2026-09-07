@@ -9,7 +9,7 @@ inputs:
   java-version:
     description: Java version
     required: true
-    default: 8
+    default: 17
   checkout-branch:
     description: git branch to checkout
     required: false
@@ -22,6 +22,10 @@ inputs:
     description: GPG passphrase for signing
     required: false
     default: ''
+  fetch-depth:
+    description: Number of commits to fetch
+    required: false
+    default: 1
 
 runs:
   using: "composite"
@@ -31,9 +35,10 @@ runs:
       uses: actions/checkout@v7
       with:
         ref: ${{ inputs.checkout-branch }}
+        fetch-depth: ${{ inputs.fetch-depth }}
     - id: setup-java
       name: Set up JDK
-      uses: actions/setup-java@v5
+      uses: actions/setup-java@v6
       with:
         distribution: temurin
         java-version: ${{ inputs.java-version }}
