@@ -28,7 +28,7 @@ runs:
   steps:
     - id: checkout-code
       name: Checkout code
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
       with:
         ref: ${{ inputs.checkout-branch }}
     - id: setup-java
