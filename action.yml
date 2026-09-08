@@ -18,10 +18,6 @@ inputs:
     description: GPG private key for signing
     required: false
     default: ''
-  gpg-passphrase:
-    description: GPG passphrase for signing
-    required: false
-    default: ''
   fetch-depth:
     description: Number of commits to fetch
     required: false
@@ -44,10 +40,10 @@ runs:
         java-version: ${{ inputs.java-version }}
         cache: maven
         server-id: central
-        server-username: MAVEN_USERNAME
-        server-password: MAVEN_PASSWORD
+        server-username-env-var: NEXUS_USERNAME
+        server-password-env-var: NEXUS_PASSWORD
+        gpg-passphrase-env-var: GPG_PASSPHRASE
         gpg-private-key: ${{ inputs.gpg-private-key }}
-        gpg-passphrase: ${{ inputs.gpg-passphrase }}
     - id: show-environment
       name: Show environment
       shell: bash
@@ -69,4 +65,9 @@ runs:
         cat ~/.m2/toolchains.xml ; echo
         echo ">>>> Graphviz:"
         which dot || echo "Graphviz not installed"
+        echo ">>>> GPG:"
+        gpg --version
+        gpgconf --list-components
+        echo test | gpg --clearsign
+        gpg --list-secret-keys --keyid-format LONG
         echo
