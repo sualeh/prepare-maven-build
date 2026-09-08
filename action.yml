@@ -48,6 +48,7 @@ runs:
       name: Show environment
       shell: bash
       run: |
+        set -euo pipefail
         # Show environment
         echo ">>>> Operating system:"
         echo "  ${{ runner.os }}"
@@ -68,6 +69,5 @@ runs:
         echo ">>>> GPG:"
         gpg --version
         gpgconf --list-components
-        echo test | gpg --clearsign
         gpg --list-secret-keys --keyid-format LONG
         echo
